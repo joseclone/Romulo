@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fila - Lab 01</title>
+</head>
+
+<body>
+    <div id="principal" class="h-screen flex items-center justify-center flex-col">
+        <div class="bg-gray-300 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/2 h-3/4">
+            <h1 class="text-xl font-extrabold leading-normal my-10 "> Lab 01 - Manipulação de Fila (enqueue, dequeue, front, size, isEmpty, printQueue)</h1>
+
+            <div class="mb-4 ">
+                <label for="valor">Digite um valor</label>
+                <br>
+                <input class="w-1/2 py-2 px-4 text-gray-700 focus:outline-none focus:shadow-outline" type="text" name="valor" id="valor" list="emocao">
+                <datalist id="emocao">
+                    <option value="😊">
+                    <option value="🤮">
+                    <option value="🥺">
+                    <option value="😡">
+                    <option value="😱">
+                </datalist>
+            </div>
+
+            <div>
+                <p>Selecione uma operação para realizar sobre a fila:</p>
+                <div class="flex justify-between ">
+                    <input type="button" class="bg-blue-500 :bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" value="enqueue" id="botaoEnqueue">
+                    <input type="button" class="bg-blue-500 :bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" value="dequeue" id="botaoDequeue">
+                    <input type="button" class="bg-blue-500 :bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" value="front" id="botaoFront">
+                    <input type="button" class="bg-blue-500 :bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" value="size" id="botaoSize">
+                    <input type="button" class="bg-blue-500 :bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" value="isEmpty" id="botaoIsEmpty">
+                    <input type="button" class="bg-blue-500 :bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" value="printQueue" id="botaoPrintQueue">
+                    <input type="button" class="bg-blue-500 :bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" value="rear" id="botaoRear">
+                </div>
+            </div>
+
+            <p class="mt-10 ">Estado da Fila:</p>
+            <div id="estadoFila" class="bg-sky-700 shadow-md rounded p-2 h-20 flex justify-start" style="color: white"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./index.js" type="module"></script>
+</body>
+
+</html>
