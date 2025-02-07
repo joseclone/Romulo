@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atender Cliente - Supermercado</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="container mx-auto p-6">
+    <div class="bg-white shadow-lg rounded-lg p-6">
+      <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">Atender Cliente</h1>
+
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold text-gray-700">Cliente Sendo Atendido</h2>
+        <div id="clienteAtendido" class="mt-4 p-4 bg-gray-200 rounded-lg text-lg text-gray-700 text-center">
+  
+        </div>
+      </div>
+
+      <div class="flex space-x-4 mt-6">
+        <button id="exibirUsuario" onclick="dequeueButton()" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Atender Cliente</button>
+        <a href="index.html" class="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">Voltar</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const exibirUsuarioDiv = document.getElementById('clienteAtendido');
+
+    async function dequeueButton() {
+        const url = "http://localhost:8000/dequeue";
+        fetch(url)
+          .then(async (response) => {
+            if (!response.ok) {
+              alert("Erro");
+            }
+            const json = await response.json();
+            const element = json.element;
+
+            console.log(element)
+
+            if (element){
+              exibirUsuarioDiv.innerHTML = element
+            }else{
+              exibirUsuarioDiv.innerHTML = "Não há mais usuários na Fila"
+            }
+          })
+          .catch((err) => {
+            alert("Erro");
+          });
+      }
+  </script>
+</body>
+</html>
