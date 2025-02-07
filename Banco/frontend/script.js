@@ -1,4 +1,3 @@
-// Elementos DOM
 const btnEnqueue = document.getElementById('btn-enqueue');
 const btnDequeue = document.getElementById('btn-dequeue');
 const btnSize = document.getElementById('btn-size');
@@ -9,7 +8,6 @@ const elementoInput = document.getElementById('elemento');
 const filaDisplay = document.getElementById('fila');
 const msgText = document.getElementById('msg-text');
 
-// Função para atualizar a fila exibida
 function atualizarFila() {
     fetch('https://ubiquitous-zebra-pw55qr9r55xcvq-8000.app.github.dev/queue')
         .then(response => response.json())
@@ -26,12 +24,10 @@ function atualizarFila() {
         });
 }
 
-// Função para mostrar mensagens
 function mostrarMensagem(mensagem) {
     msgText.textContent = mensagem;
 }
 
-// Enqueue - Adicionar à fila
 btnEnqueue.addEventListener('click', () => {
     const elemento = elementoInput.value.trim();
     if (elemento) {
@@ -56,7 +52,6 @@ btnEnqueue.addEventListener('click', () => {
     }
 });
 
-// Dequeue - Remover da fila
 btnDequeue.addEventListener('click', () => {
     fetch('https://ubiquitous-zebra-pw55qr9r55xcvq-8000.app.github.dev/dequeue')
         .then(response => response.json())
@@ -69,7 +64,6 @@ btnDequeue.addEventListener('click', () => {
         });
 });
 
-// Tamanho da fila
 btnSize.addEventListener('click', () => {
     fetch('https://ubiquitous-zebra-pw55qr9r55xcvq-8000.app.github.dev/size')
         .then(response => response.json())
@@ -81,7 +75,6 @@ btnSize.addEventListener('click', () => {
         });
 });
 
-// Frente da fila
 btnFront.addEventListener('click', () => {
     fetch('https://ubiquitous-zebra-pw55qr9r55xcvq-8000.app.github.dev/front')
         .then(response => response.json())
@@ -93,7 +86,6 @@ btnFront.addEventListener('click', () => {
         });
 });
 
-// Final da fila
 btnRear.addEventListener('click', () => {
     fetch('https://ubiquitous-zebra-pw55qr9r55xcvq-8000.app.github.dev/rear')
         .then(response => response.json())
@@ -105,7 +97,6 @@ btnRear.addEventListener('click', () => {
         });
 });
 
-// Verificar se a fila está vazia
 btnIsEmpty.addEventListener('click', () => {
     fetch('https://ubiquitous-zebra-pw55qr9r55xcvq-8000.app.github.dev/isEmpty')
         .then(response => response.json())
